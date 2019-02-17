@@ -27,6 +27,11 @@ import org.antipathy.scoozie.builder.HoconConstants;
  */
 public class Artefact {
 
+    private File configFile;
+    private boolean saveAsZip;
+    private File outputDirectory;
+    private Config config = null;
+
     public Artefact() {}
 
 
@@ -36,22 +41,17 @@ public class Artefact {
         this.outputDirectory = outputDirectory;
     }
 
-    private File configFile;
-    private boolean saveAsZip;
-    private File outputDirectory;
-    private Config config = null;
-
     /**
      * getter method for configFile
      */
-    File getConfigFile() {
+    protected File getConfigFile() {
         return configFile;
     }
 
     /**
      * getter method for saveAsZip
      */
-    boolean isSaveAsZip() {
+    protected boolean isSaveAsZip() {
         return saveAsZip;
     }
 
@@ -68,21 +68,21 @@ public class Artefact {
     /**
      * getter method for outputDirectory
      */
-    File getOutputDirectory() {
+    protected File getOutputDirectory() {
         return outputDirectory;
     }
 
     /**
      * setter method for outputDirectory
      */
-    void setOutputDirectory(File outputDirectory) {
+    protected void setOutputDirectory(File outputDirectory) {
         this.outputDirectory = outputDirectory;
     }
 
     /**
      * setter method for outputDirectory
      */
-    Path buildOutputDirectory() {
+    protected Path buildOutputDirectory() {
         StringBuilder outputDir = new StringBuilder();
 
         Config c = getConfig();
